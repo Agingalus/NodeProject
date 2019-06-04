@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="stylesheets/WorkTheme.css" />
+    <link rel="stylesheet" href="stylesheets/jquery.mobile.icons.min.css" />
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="javascripts/my.js"></script>
+
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.js"></script>
+    <title>Work App</title>
+</head>
+
+<body>
+    <!-- first page -->
+    <div data-role="page" id="home">
+        <!-- header -->
+        <div data-theme="a" data-role="header">
+            <h3>The Work App</h3>
+            <h4>Home Page</h4>
+            <!-- <a href="#second" class="ui-btn-right">Next</a> -->
+        </div>
+
+        <div data-role="content" style="margin:20px; position:relative">
+            <!-- body display list of notes -->
+            <div data-role="listview" data-autodividers="true" data-theme="c" id="workDisplay">
+            </div>
+            <br>
+            <a href="#addPage" class="ui-btn" data-transition="flip">Go to Add Note Page</a>
+            <br>
+            <!-- <h5>To delete a note, copy the product name then paste after clicking next link.</h5>
+            <a href="#deletePage" class="ui-btn" data-transition="flip">Go to Delete Page</a> -->
+
+        </div>
+        <!-- footer -->
+        <div data-role="footer">
+            <h1><i>&copy;Aaron&Cary 2019</i></h1>
+        </div>
+    </div>
+
+
+    <!-- second page  detail-->
+    <div data-role="page" id="details-page">
+        <!-- header -->
+        <div data-theme="a" data-role="header">
+            <h3>The Work App</h3>
+            <h4>Details Page</h4>
+            <a href="#home" class="ui-btn-left">Back</a>
+        </div>
+        <!-- body -->
+        <div data-role="content" style="margin:20px; position:relative">
+            <a href="#home" class="ui-btn" data-transition="flip" onclick="deleteWorkDetails();">Delete</a>
+
+            <a href="#updatePage" class="ui-btn" data-transition="pop">Go to Update Page</a>
+
+            <p id="detailParmHere" hidden>change1</p>
+            <p id="showdata">change2</p>
+        </div>
+        <!-- footer -->
+        <div data-role="footer">
+            <h1><i>&copy;Aaron&Cary 2019</i></h1>
+        </div>
+    </div>
+
+    <!-- 3rd page  add-->
+
+    <div data-role="page" id="addPage" data-theme="a">
+        <!-- header -->
+        <div data-role="header">
+            <h3>The Work App</h3>
+            <h4>Add Page</h4>
+            <a href="#home" class="ui-btn-left">Back</a>
+        </div>
+        <!-- body -->
+        <div data-role="main" class="ui-content">
+            <div style="margin:20px; position:relative">
+
+                <h2>Add a new Work</h2>
+                <p id="detailUpdateParmHere" hidden>change1</p>
+                Name: <input type="text" id="newName" size="60" />
+                <br /> Work Type: <input type="text" id="newWorkType" size="60" /> <br />
+                <!-- <br /> DateEntered: <input type="text" id="newDateEntered" size="60" /> -->
+                <br /> Start: <input type="time" id="newStart" />
+                <br /> End: <input type="time" id="newEnd" />
+                <!-- <br /> TotalTime: <input type="text" id="newTotalTime" size="60" /> -->
+                <br /> Per Hour: <input type="text" id="newPerHour" size="60" />
+                <!-- <br /> TotalPay: <input type="text" id="newTotalPay" size="60" /> -->
+                <br /> Dat eWorked: <input type="date" id="newDateWorked" />
+
+                <input type="button" value="Add New Work" onclick="addItem();" />
+            </div>
+
+
+            <a href="#home" class="ui-btn" data-transition="flip" data-rel="back">Go Back</a>
+
+        </div>
+        <!-- footer -->
+        <div data-role="footer">
+            <h1><i>&copy;Aaron&Cary 2019</i></h1>
+        </div>
+    </div>
+
+    <!-- 4th page delete
+    <div data-role="page" id="deletePage" data-theme="a">
+        <div data-role="header">
+            <h3>The Work App</h3>
+            <h4>Delete Page</h4>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <div style="margin:20px; position:relative">
+                <h2>Delete a Note by Subject</h2>
+                <input type="text" id="deleteWorkType" size="25" />
+                <input type="button" value="Delete" onclick="deleteWork();" />
+            </div>
+
+            <a href="#home" class="ui-btn" data-transition="flip" data-rel="back">Go Back</a>
+
+        </div>
+
+        <div data-role="footer">
+            <h1><i>&copy;Aaron&Cary 2019</i></h1>
+        </div>
+    </div> -->
+    <!-- 5rd page  -->
+
+    <div data-role="page" id="updatePage" data-theme="a">
+        <!-- header -->
+        <div data-role="header">
+            <h3>The Work App</h3>
+            <h4>Add Page</h4>
+        </div>
+        <!-- body -->
+        <div data-role="main" class="ui-content">
+            <div>
+                <h2>Add a update Work</h2>
+                Name: <input type="text" id="updateName" size="60" />
+                <br /> WorkType: <input type="text" id="updateWorkType" size="60" /> <br />
+                <!-- <br /> DateEntered: <input type="text" id="updateDateEntered" size="60" /> -->
+                <br /> Start: <input type="time" id="updateStart" />
+                <br /> End: <input type="time" id="updateEnd" />
+                <!-- <br /> TotalTime: <input type="text" id="updateTotalTime" size="60" /> -->
+                <br /> PerHour: <input type="text" id="updatePerHour" size="60" />
+                <!-- <br /> TotalPay: <input type="text" id="updateTotalPay" size="60" /> -->
+                <br /> DateWorked: <input type="date" id="updateDateWorked" size="60" />
+
+                <a href="#details-page" class="ui-btn" data-transition="flip" onclick="updateItem();">Update Work</a>
+            </div>
+
+
+            <a href="#home" class="ui-btn" data-transition="flip" data-rel="back">Go Back</a>
+
+        </div>
+        <!-- footer -->
+        <div data-role="footer">
+            <h1><i>&copy;Aaron&Cary 2019</i></h1>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
