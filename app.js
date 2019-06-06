@@ -1,7 +1,8 @@
 /* eslint-disable linebreak-style */
+const http = require("http");
 var express = require("express");
 var path = require("path");
-var favicon = require("serve-favicon");
+//var favicon = require("serve-favicon");
 var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
@@ -36,7 +37,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.use('/users', users);
 
 // new code from example
-const port = 3000;
+const port = process.env.PORT || 3000;
 MongoClient.connect(mongoUrl, option, (err, database) => {
     if (err) return console.log(err);
     let db = database.db("Prog219DB");
