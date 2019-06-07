@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 //import { parse } from "url";
 
 /* eslint-disable linebreak-style */
@@ -36,7 +37,7 @@ $(document).on("pagebeforeshow", "#details-page", function() {
     $.getJSON("/findWork/" + id)
         .done(function(data) {
             //all of the data in the item
-            textString = "Name: " + data.Name + "<br> Work Type: " + data.WorkType + "<br> DateEntered: " + timeConverter(data.DateEntered) +
+            textString = "Name: " + data.Name + "<br> Work Type: " + data.WorkType + "<br> Date Entered: " + timeConverter(data.DateEntered) +
                 "<br> Start: " + data.Start +
                 "<br> End: " + data.End +
                 "<br> Total Time: " + data.TotalTime.toFixed(2) +
