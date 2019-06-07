@@ -57,7 +57,7 @@ module.exports = function(app, db) {
             if (err) {
                 res.send({ 'error': 'An error has occurred' });
             } else {
-                res.send(work);
+                res.send(true);
             }
         });
     });
@@ -101,7 +101,7 @@ module.exports = function(app, db) {
 
     app.delete('/deleteWork/:bid', (req, res) => {
         const theWork = req.params.bid;
-        console.log(theWork);
+        //console.log(theWork);
         //const details = { '_id': new ObjectID(id) };  not using the _id
         const which = { 'WorkType': theWork }; // delete by subject
         db.collection('Work').deleteOne(which, (err, item) => {
