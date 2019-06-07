@@ -128,7 +128,7 @@ function validData(work) {
         return false;
 
     }
-    if (work.PerHour === "") {
+    if (work.PerHour === "" || isNaN(work.PerHour)) {
         return false;
 
     }
@@ -151,7 +151,7 @@ function addItem() {
     var newWorkType = $("#newWorkType").val();
     var newStart = $("#newStart").val();
     var newEnd = $("#newEnd").val();
-    var newTotalTime = $("#newTotalTime").val();
+    //var newTotalTime = $("#newTotalTime").val();
     var newPerHour = $("#newPerHour").val();
     //var newTotalPay = $("#TotalPay").val();
     var newDateWorked = $("#newDateWorked").val();
